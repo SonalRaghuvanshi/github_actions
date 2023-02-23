@@ -2,8 +2,7 @@ name: Search for tags in file
 
 on:
   push:
-    branches:
-      - main
+    branches: [ master ]
 
 jobs:
   search-tags:
