@@ -4,6 +4,10 @@ on:
   push:
     branches: [ master ]
 
+env:
+  GITHUB_TOKEN: ${{ secretsGITHUB_TOKEN }}
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+
 jobs:
   search-tags:
     runs-on: ubuntu-latest
