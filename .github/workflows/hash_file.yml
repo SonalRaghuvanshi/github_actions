@@ -1,1 +1,29 @@
+name: Search for tags in file
 
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  search-tags:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Read file and search for tags
+        run: |
+          # Replace these values with your own
+          FILENAME=hash.txt
+          TAGS=sonal,raghuvanshi,jaswinder
+
+          # Read the file contents into a variable
+          CONTENT=$(cat $FILENAME)
+
+          # Loop over the tags and check if they exist in the file contents
+          for TAG in $(echo $TAGS | tr ',' ' '); do
+            if echo $CONTENT | grep -q $TAG; then
+              echo "Found tag $TAG in $FILENAME"
+            fi
+          done
