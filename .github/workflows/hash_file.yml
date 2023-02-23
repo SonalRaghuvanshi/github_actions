@@ -27,7 +27,7 @@ jobs:
           # Loop over the tags and check if they exist in the file contents
           for TAG in $(echo $TAGS | tr ',' ' '); do
             if echo $CONTENT | grep -q $TAG; then
-              echo "Found tag $TAG in $FILENAME" > tag.txt
+              echo "Found tag $TAG in $FILENAME" >> tag.txt
             fi
           done
       
